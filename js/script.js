@@ -35,24 +35,32 @@ function playGame(playerInput) {
     function displayResult(argComputerMove, argPlayerMove) {
         console.log('moves:', argComputerMove, argPlayerMove);
 
-        printMessage('Komputer wybrał ' + argComputerMove + '<br> Twój wybór to ' + argPlayerMove);
+        printMessage('Komputer wybrał ' + argComputerMove + '<br> Twój wybór to ' + argPlayerMove + '<br><br>');
 
         if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
-            printMessage('Wygrywasz!');
+            printMessage('Wygrywasz! '  + '<br><br>', "roundResultWin");
+            playerWins++
             console.log('Gracz wygrał');
         }
         else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
-            printMessage('Wygrywasz!');
+            printMessage('Wygrywasz !'  + '<br><br>', "roundResultWin");
+            playerWins++
         }
         else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
-            printMessage('Wygrywasz!');
+            printMessage('Wygrywasz! '  + '<br><br>', "roundResultWin");
+            playerWins++
         }
         else if (argComputerMove == argPlayerMove) {
-            printMessage('Mamy remis!');
+            printMessage('Mamy remis! '  + '<br><br>', "roundResultDraw");
         }
         else {
-            printMessage('Niestety przegrywasz ;(');
+            printMessage('Niestety przegrywasz ;( ' + '<br><br>', "roundResultLoss");
+            computerWins++
+            console.log('Komputer wygrał. Dodano 1 do wyniku komputera (computerWins). Obecny wynik komputera: ' + computerWins)
         }
+        printMessage('Wynik gry: ');
+        printMessage('Gracz: ' + playerWins, "scoreList");
+        printMessage('Komputer: ' + computerWins, "scoreList");
     }
     displayResult(computerMove, playerMove);
 }
@@ -68,6 +76,8 @@ document.getElementById('play-paper').addEventListener('click', function () {
 document.getElementById('play-scissors').addEventListener('click', function () {
     playGame(3);
 });
+
+let computerWins = 0, playerWins = 0
 
 
 
