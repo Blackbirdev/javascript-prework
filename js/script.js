@@ -1,3 +1,5 @@
+let computerWins = 0, playerWins = 0;
+
 function playGame(playerInput) {
     clearMessages()
 
@@ -17,6 +19,8 @@ function playGame(playerInput) {
         }
     }
 
+
+
     // Computer move
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -32,26 +36,28 @@ function playGame(playerInput) {
 
     // Game result
 
+
+
     function displayResult(argComputerMove, argPlayerMove) {
         console.log('moves:', argComputerMove, argPlayerMove);
 
         printMessage('Komputer wybrał ' + argComputerMove + '<br> Twój wybór to ' + argPlayerMove + '<br><br>');
 
         if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
-            printMessage('Wygrywasz! '  + '<br><br>', "roundResultWin");
+            printMessage('Wygrywasz! ' + '<br><br>', "roundResultWin");
             playerWins++
             console.log('Gracz wygrał');
         }
         else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
-            printMessage('Wygrywasz !'  + '<br><br>', "roundResultWin");
+            printMessage('Wygrywasz !' + '<br><br>', "roundResultWin");
             playerWins++
         }
         else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
-            printMessage('Wygrywasz! '  + '<br><br>', "roundResultWin");
+            printMessage('Wygrywasz! ' + '<br><br>', "roundResultWin");
             playerWins++
         }
         else if (argComputerMove == argPlayerMove) {
-            printMessage('Mamy remis! '  + '<br><br>', "roundResultDraw");
+            printMessage('Mamy remis! ' + '<br><br>', "roundResultDraw");
         }
         else {
             printMessage('Niestety przegrywasz ;( ' + '<br><br>', "roundResultLoss");
@@ -77,7 +83,7 @@ document.getElementById('play-scissors').addEventListener('click', function () {
     playGame(3);
 });
 
-let computerWins = 0, playerWins = 0
+
 
 
 
